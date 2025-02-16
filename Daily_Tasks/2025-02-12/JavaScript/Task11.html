@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature Converter</title>
+  </head>
+  <body>
+    <h2>Temperature Converter</h2>
+
+    <label>Enter Temperature:</label>
+    <input type="number" id="tempValue" />
+
+    <select id="tempUnit">
+      <option value="C">Celsius (°C)</option>
+      <option value="F">Fahrenheit (°F)</option>
+    </select>
+
+    <button onclick="convertTemp()">Convert</button>
+
+    <p id="result"></p>
+
+    <script>
+      function convertTemp() {
+        const temp = parseFloat(document.getElementById("tempValue").value);
+        const unit = document.getElementById("tempUnit").value;
+        let convertedTemp, resultText;
+
+        if (unit === "C") {
+          convertedTemp = (temp * 9) / 5 + 32;
+          resultText = `${temp}°C is ${convertedTemp.toFixed(2)}°F`;
+        } else {
+          convertedTemp = ((temp - 32) * 5) / 9;
+          resultText = `${temp}°F is ${convertedTemp}°C`;
+        }
+
+        document.getElementById("result").textContent = resultText;
+      }
+    </script>
+  </body>
+</html>

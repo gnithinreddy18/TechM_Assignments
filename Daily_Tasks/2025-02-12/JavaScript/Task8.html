@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Guessing Game</title>
+  </head>
+  <body>
+    <h2>Guess a number between 1 and 10</h2>
+    <input type="number" id="userGuess" min="1" max="10" />
+    <button onclick="checkGuess()">Submit Guess</button>
+    <p id="result"></p>
+
+    <script>
+      const randomNumber = Math.floor(Math.random() * 10) + 1;
+
+      function checkGuess() {
+        const userGuess = parseInt(document.getElementById("userGuess").value);
+        const resultText =
+          userGuess === randomNumber ? "Good Work!" : "Try Again!";
+        document.getElementById("result").textContent = resultText;
+      }
+    </script>
+  </body>
+</html>

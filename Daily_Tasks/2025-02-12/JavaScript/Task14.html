@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sort Three Numbers</title>
+  </head>
+  <body>
+    <h2>Sort Three Numbers in Descending Order</h2>
+
+    <label>Enter First Number:</label>
+    <input type="number" id="num1" /><br /><br />
+
+    <label>Enter Second Number:</label>
+    <input type="number" id="num2" /><br /><br />
+
+    <label>Enter Third Number:</label>
+    <input type="number" id="num3" /><br /><br />
+
+    <button onclick="sortNumbers()">Sort</button>
+
+    <script>
+      function sortNumbers() {
+        const a = parseFloat(document.getElementById("num1").value);
+        const b = parseFloat(document.getElementById("num2").value);
+        const c = parseFloat(document.getElementById("num3").value);
+
+        let numbers = [a, b, c];
+        numbers.sort((x, y) => y - x);
+
+        alert(`Sorted order: ${numbers.join(", ")}`);
+      }
+    </script>
+  </body>
+</html>
