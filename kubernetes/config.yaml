@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ecommerce-config
+data:
+  db-url: "jdbc:postgresql://postgres-service:5432/ecommerce"
+  app-url: "http://ecommerce-service"
+---
+# This is a template - in a real environment, use kubectl create secret or a secret management solution
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ecommerce-secrets
+type: Opaque
+data:
+  # Base64 encoded values - these are examples and should be changed
+  db-username: cG9zdGdyZXM=  # postgres
+  db-password: cGFzc3dvcmQ=  # password
+  jwt-secret: c2VjcmV0LWtleS1mb3ItZWNvbW1lcmNlLWFwcGxpY2F0aW9u  # secret-key-for-ecommerce-application 
